@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class Lotto {
     private final int NUMBERS_LENGTH = 6;
-    private List<LottoNumber> numbers;
+    protected List<LottoNumber> numbers;
 
     public static Lotto of(Integer... numbers) {
         if (numbers.length == 0)

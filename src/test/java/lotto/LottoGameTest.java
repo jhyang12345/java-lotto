@@ -51,13 +51,6 @@ public class LottoGameTest {
         );
     }
 
-    @Test
-    public void generateLottoHolder() {
-        lottoGame.setCost(6000);
-        assertEquals(6, lottoGame.generateLottoHolder().size());
-        lottoGame.setCost(0);
-        assertEquals(0, lottoGame.generateLottoHolder().size());
-    }
 
     @Test
     public void calculatePrizeSum() {

@@ -6,13 +6,11 @@ import java.util.stream.Collectors;
 
 public class LottoGame {
 
-    private List<Lotto> lottoHolder;
+    private List<Lotto> lottoHolder = new ArrayList<>();
     private int cost;
-    private Lotto winnerLotto;
 
     public LottoGame(int cost) {
         this.cost = cost;
-        this.lottoHolder = generateLottoHolder();
     }
 
     public void setCost(int cost) {
@@ -23,20 +21,20 @@ public class LottoGame {
         return this.lottoHolder;
     }
 
+    public void addLotto(Lotto lotto) {
+        lottoHolder.add(lotto);
+    }
+
+    public int  fillRest() {
+        int restCount = cost / 1000 - lottoHolder.size();
+        for (int i = 0; i < restCount; i++) {
+            addLotto(new Lotto());
+        }
+        return restCount;
+    }
+
     public void setLottoHolder(List<Lotto> holder) {
         this.lottoHolder = holder;
-    }
-
-    public void setWinnerLotto(Lotto lotto) {
-        this.winnerLotto = lotto;
-    }
-
-    public List<Lotto> generateLottoHolder() {
-        List<Lotto> holder = new ArrayList<>();
-        for (int i = 0; i < cost / 1000; i++) {
-            holder.add(new Lotto());
-        }
-        return holder;
     }
 
     public int getPrizeSum(Lotto winnerLotto) {
